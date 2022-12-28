@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+        <h1>W tym panelu możesz:</h1>
+        <ul>
+            <li>Zarządzać Pracownikami</li>
+            <li>Konfigurować Menu</li>
+            <li>Obserwować ilość zamówień i więcej</li>
+        </ul>
+        <h5>Pracownik może jedynie przeglądać i realizować zamówienia</h5>
+    </div>
+
+    <div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

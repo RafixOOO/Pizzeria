@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+    <h1>Informacje:</h1>
+    <ul>
+        <li>Liczba klientów: <span th:utext="${klient}"></span></li>
+        <li>Liczba zamówień: <span th:utext="${zamowienia}"></span></li>
+        <li>Liczba Pracowników: <span th:utext="${pracownicy}-2"></span></li>
+        <li>Liczba Kont: <span th:utext="${konta}"></span></li>
+        <li>Liczba Pizz: <span th:utext="${pizza}"></span></li>
+        <li>Liczba Dodatków: <span th:utext="${dodatki}"></span></li>
+    </ul>
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

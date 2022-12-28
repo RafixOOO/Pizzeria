@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+    <table id="customers">
+        <thead>
+        <tr>
+            <td colspan="7" align="center">
+                Zamówienia
+            </td>
+        </tr>
+        <tr>
+            <th>Nr Zamówienia</th>
+            <th>Dane Klient</th>
+            <th>Adres</th>
+            <th>Menu</th>
+            <th>Opcje</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each ="zam : ${zamowienia}">
+            <td th:utext="${zam.Id}"></td>
+            <td th:utext="${zam.klient.imie}+' '+${zam.klient.nazwisko}+' '+${zam.klient.numer}"></td>
+            <td th:utext="${zam.Klient.ulica}+' '+${zam.Klient.miejscowosc}"></td>
+            <td><a th:href="@{'/Check?id='+${zam.id}}"><button>Sprawdź</button></td>
+            <td><a th:href="@{'/Zrealizuj?id='+${zam.id}}"><button>Zrealizuj</button></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

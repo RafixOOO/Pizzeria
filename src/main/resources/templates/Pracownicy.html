@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+        <table id="customers">
+            <thead>
+            <tr>
+                <td colspan="4" align="center">
+                    Pracownicy
+                </td>
+            </tr>
+            <tr>
+                <th>Imie</th>
+                <th>Nazwisko</th>
+                <th>Stanowisko</th>
+                <th>Opcje</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr th:each ="prac : ${pracownik}">
+                <td th:utext="${prac.Imie}"></td>
+                <td th:utext="${prac.Nazwisko}"></td>
+                <td th:utext="${prac.Stanowisko}"></td>
+                <td><center><a th:href="@{'/Modify?id='+${prac.id}}"><img src="/images/pencil-square.svg" alt="Modyfikuj" width="20px" height="20px" style="padding-right: 20px;" /></a><a th:href="@{'/Usun?id='+${prac.id}}"><img src="/images/x-square.svg" alt="dodaj" width="20px" height="20px"/> </a></center></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <form action="/Dodaj" th:object="${command}" method="GET" >
+            <tr>
+                <td><input type="text" th:field="*{textField}" autocomplete="off" required/></td>
+                <td><input type="text" th:field="*{textareaField}" autocomplete="off" required/></td>
+                <td><input type="text" th:field="*{datetimeField}" list="prac" autocomplete="off" required/>
+                    <datalist id="prac">
+                        <option value="Admin">
+                        <option value="Pracownik">
+                        <option value="Kucharz">
+                        <option value="Kelner">
+                        <option value="Sprzątaczka">
+                    </datalist>
+                </td>
+                <td><center><input type="image" src="/images/plus-circle.svg" alt="Submit" width="20" height="20"/></center></td>
+            </tr>
+            </form>
+        </tfoot>
+        </table>
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

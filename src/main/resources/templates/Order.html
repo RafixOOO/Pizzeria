@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+<div th:replace="layout :: klient"></div>
+<div id="content">
+    <table id="customers">
+        <thead>
+        <tr>
+            <td colspan="4" align="center">
+                Menu
+            </td>
+        </tr>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Opis</th>
+            <th>Opcje</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each ="menu : ${menu1}">
+            <td th:utext="${menu.Nazwa}"></td>
+            <td th:utext="${menu.Cena}"></td>
+            <td th:utext="${menu.opis}"></td>
+            <td><a th:href="@{'/Dodajpizze?id='+${menu.id}}"><button>Dodaj</button> </a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

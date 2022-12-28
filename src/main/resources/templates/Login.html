@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizzeria</title>
+  <link rel="shortcut icon" href="/images/Pizza.png"/>
+  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+  <div th:replace="layout :: top"></div>
+<div id="content">
+  <center><h2>Logowanie</h2>
+
+  <div th:if="${param.error}" style="color:red;">
+    Błędna nazwa użytkownika lub hasło.
+  </div>
+
+  <div th:if="${param.logout}" style="color:green;">
+    Wylogowałeś się. Możesz zalogować się ponownie.
+  </div>
+
+  <br/>
+
+  <div>
+    <form th:action="@{/Login}" method="post">
+      <div><label> Użytkownik <br /><input type="text" name="username"/> </label></div> <br/>
+      <div><label> Hasło <br /><input type="password" name="password"/> </label></div> <br/>
+      <div><input type="submit" value="Zaloguj"/></div>
+    </form>
+    <br />
+    <a href="/"><button>Strona Główna</button></a></center>
+  </div>
+
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

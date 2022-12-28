@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+    <table id="customers" style="width:100%;table-layout:fixed;">
+        <thead>
+        <tr>
+            <td colspan="5" align="center">
+                Edycja Menu
+            </td>
+        </tr>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Opis</th>
+            <th>Widoczność</th>
+            <th>Opcje</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each ="menu : ${menu}">
+            <td th:utext="${menu.Nazwa}"></td>
+            <td th:utext="${menu.Cena}"></td>
+            <td th:utext="${menu.opis}"></td>
+            <td th:utext="${menu.visible}"></td>
+            <td><center><a th:href="@{'/Modifymenu?id='+${menu.id}}"><img src="/images/pencil-square.svg" alt="Modyfikuj" width="20px" height="20px" /></a><a th:href="@{'/Usunmenu?id='+${menu.id}}"><img src="/images/eye-slash.svg" alt="Schowaj" width="20px" height="20px" style="padding-left: 20px; padding-right: 20px"/></a><a th:href="@{'/Pokazmenu?id='+${menu.id}}"><img src="/images/eye.svg" width="20px" height="20px"/></a></center></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <form action="/Dodajmenu" th:object="${command}" method="GET" >
+            <tr>
+                <td><input type="text" th:field="*{textField}" autocomplete="off" required/></td>
+                <td><input type="number" th:field="*{textareaField}" autocomplete="off" required/></td>
+                <td><input type="text" th:field="*{datetimeField}" autocomplete="off" required/></td>
+                <td>true</td>
+                <td><center><input type="image" src="/images/plus-circle.svg" alt="Submit" width="20" height="20"/></center></td>
+            </tr>
+        </form>
+        </tfoot>
+    </table>
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

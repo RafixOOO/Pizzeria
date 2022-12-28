@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div id="content">
+    <form action="/Dodajdodatki" th:object="${command}" method="GET">
+        <div th:each="checkboxValue: ${dodatki}">
+            <input type="checkbox"
+                   th:field="*{multiCheckboxSelectedValues}"
+                   th:value="${checkboxValue.nazwa}" />
+
+            <label
+                    th:for="${#ids.prev('multiCheckboxSelectedValues')}"
+                    th:text="${checkboxValue.nazwa}+ ' ' + ${checkboxValue.cena}">
+            </label>
+        </div>
+        <br />
+        Uwagi: <input type="text" th:field="*{textField}" />
+        <br /><br />
+        <input type="submit" value="Dalej" />
+    </form>
+    </div>
+    <div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

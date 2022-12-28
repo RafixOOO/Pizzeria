@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Pizzeria</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="topbar" th:fragment="top">
+    <div id="topbarL">
+        <img src="/images/Pizza.png" id="obrazek" />
+    </div>
+    <div id="topbarR">
+        <br />
+        <br />
+        <span class="bigtitle">PIZZERIA</span>
+
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div id="menu" th:fragment="Admin">
+    <a href="/Panel" id="a">Panel</a>
+    <a href="/Pracownicy" id="a">Pracownicy</a>
+    <a href="/Menu" id="a">Edytuj menu</a>
+    <a href="/Zamowienia" id="a">Zamówienia</a>
+    <a href="/Info" id="a">Informacje</a>
+    <a href="/Password" id="a">Dane</a>
+    <form method="POST" th:action="@{/logout}">
+        <a id="i" style="float: right; border-right: 0cm;"><input type="image" src="/images/box-arrow-in-left.svg" alt="Person" width="25" height="25" onclick="submit();"/></a>
+    </form>
+
+    <div style="clear:both;"></div>
+</div>
+
+<div id="menu" th:fragment="klient">
+    <a href="/Order" id="a">Menu</a>
+    <a href="/Koszyk" id="i" style="float: right;border-right: 0cm;"><img src="/images/basket.svg" alt="Basket" width="25" height="25" /></a>
+    <div style="clear:both;"></div>
+</div>
+
+    <div id="menu" th:fragment="klient1">
+        <a href="/Dane" id="a">Zamów</a>
+        <a th:href="@{/Panel}" style="float: right;border-right: 0cm;" id="a">Logowanie</a>
+        <div style="clear:both;"></div>
+    </div>
+
+<div id="footer" th:fragment="footer">
+    Designed by: Rafał Pezda &copy; Wszelkie prawa zastrzeżone
+</div>
+
+</body>
+</html>

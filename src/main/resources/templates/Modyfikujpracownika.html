@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: Admin"></div>
+    <div id="content">
+<form action="/Zmiana" th:object="${command}" method="GET">
+    Imie:<input type="text" th:field="*{textField}" /><br />
+    Nazwisko:<input type="text" th:field="*{textareaField}" /><br />
+    Stanowisko:<input type="text" th:field="${command.datetimeField}" list="prac" /><br />
+    <datalist id="prac">
+        <option value="Admin">
+        <option value="Pracownik">
+        <option value="Kucharz">
+        <option value="Sprzątaczka">
+    </datalist>
+    <td><input type="submit" value="Zmień" /></td>
+</form>
+
+</div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

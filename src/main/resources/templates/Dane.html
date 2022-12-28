@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div id="content">
+    <form action="/da" th:object="${command}" method="GET">
+        <center><p>Proszę podać dane kontaktowe:</p>
+        Imie <br/><input type="text" th:field="*{textField}" required/><br />
+        Nazwisko <br/><input type="text" th:field="*{textareaField}" required/><br />
+        Numer Telefonu <br/><input type="tel" th:field="*{datetimeField}" placeholder="123456789" pattern="[0-9]{9}" required/><br /><br />
+        <p>Proszę podać dane do wysyłki:</p>
+        Ulica<br/> <input type="text" th:field="*{colorField}" required/><br />
+        Miejscowość: <br/><input type="text" th:field="*{radioButtonSelectedValue}" required/><br /><br />
+        <td><input type="submit" value="Dalej" /></td></center>
+    </form>
+    </div>
+    <div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>

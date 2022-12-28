@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="497c0458-0092-4ad7-ae93-6ff12367e97f" name="Pizzeria" url="jdbc:postgresql://localhost/Pizzeria" driverClass="org.postgresql.Driver" />
+      <data-source id="6522d060-dac6-440b-ad24-7809374d87ac" name="Pizzeri" url="jdbc:postgresql://localhost/Pizzeria" driverClass="org.postgresql.Driver" />
+      <data-source id="35d48360-e4cf-4029-b3fd-70c67e1e75f2" name="Pizza" url="jdbc:postgresql://localhost/Pizza" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

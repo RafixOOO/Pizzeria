@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizzeria</title>
+    <link rel="shortcut icon" href="/images/Pizza.png"/>
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+</head>
+<body id="body">
+<div id="container">
+    <div th:replace="layout :: top"></div>
+    <div th:replace="layout :: klient"></div>
+    <div id="content">
+    <table id="customers">
+        <thead>
+        <tr>
+            <td colspan="3" align="center">
+                Koszyk
+            </td>
+        </tr>
+        <tr>
+            <th>Nazwa</th>
+            <th>Dodatki</th>
+            <th>Uwagi</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each ="dan : ${dania}">
+            <td th:utext="${dan.Menu.nazwa}"></td>
+            <td>
+                <ul th:each="dod : ${dan.Dodatki}">
+                    <li th:utext="${dod.nazwa}"></li>
+                </ul>
+            </td>
+            <td th:utext="${dan.uwagi}"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>Suma:</td>
+            <td th:utext="${cena}" style="float: right"></td>
+            <td>zł</td>
+        </tr>
+        </tfoot>
+    </table>
+    <a href="/Zamow"><button>Zamów</button></a>
+    </div>
+<div th:replace="layout :: footer"></div>
+</div>
+</body>
+</html>
