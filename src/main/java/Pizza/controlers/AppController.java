@@ -4,7 +4,6 @@ import Pizza.models.*;
 import Pizza.repos.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 
-@Controller
+@RestController
 public class AppController {
 
     @Autowired
@@ -386,6 +385,8 @@ public class AppController {
         }
         return "Panel";
     }
+
+
 
     @ExceptionHandler
     public String handlerException(Model model, Exception exception) {

@@ -2,6 +2,7 @@ package Pizza.models;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "zamowione_dania")
@@ -12,6 +13,8 @@ public class ZamowioneDania {
     private Integer id;
 
     private String uwagi;
+
+    private LocalDate Date;
 
     @ManyToOne
     private Zamowienie zamowienie;
@@ -28,6 +31,7 @@ public class ZamowioneDania {
     public ZamowioneDania(String uwagi, Zamowienie zamowienie, Set<Dodatki> dodatki, Menu menu) {
         this.uwagi = uwagi;
         this.zamowienie = zamowienie;
+        this.Date= LocalDate.now();
         this.dodatki = dodatki;
         this.menu = menu;
     }
@@ -39,6 +43,10 @@ public class ZamowioneDania {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public LocalDate getDate(){return Date;}
+
+    public void setDate(LocalDate Date){this.Date = Date;}
 
     public String getUwagi() {
         return uwagi;
