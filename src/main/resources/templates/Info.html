@@ -4,26 +4,58 @@
     <meta charset="UTF-8">
     <title>Pizzeria</title>
     <link rel="shortcut icon" href="/images/Pizza.png"/>
-    <link rel="stylesheet" href="/css/style.css" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext" rel="stylesheet"
+          type="text/css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
 </head>
 <body id="body">
-<div id="container">
+
+<div id="container1">
     <div th:replace="layout :: top"></div>
     <div th:replace="layout :: Admin"></div>
     <div id="content">
-    <h1>Informacje:</h1>
-    <ul>
-        <li>Liczba klientów: <span th:utext="${klient}"></span></li>
-        <li>Liczba zamówień: <span th:utext="${zamowienia}"></span></li>
-        <li>Liczba Pracowników: <span th:utext="${pracownicy}-2"></span></li>
-        <li>Liczba Kont: <span th:utext="${konta}"></span></li>
-        <li>Liczba Pizz: <span th:utext="${pizza}"></span></li>
-        <li>Liczba Dodatków: <span th:utext="${dodatki}"></span></li>
-    </ul>
-</div>
-<div th:replace="layout :: footer"></div>
+        <h1>Informacje:</h1>
+        <div style="width: 80%;" id="container"></div>
+
+        </ul>
+        <script>
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'line'
+                },
+                title: {
+                    text: 'Miesięczne zarobki'
+                },
+                xAxis: {
+                    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Zarobki (zł)'
+                    }
+                },
+                plotOptions: {
+                    line: {
+                        dataLabels: {
+                            enabled: true
+                        },
+                        enableMouseTracking: false
+                    }
+                },
+                series: [{
+                    name: '2023',
+                    data: [[${dane}]]
+                }]
+            });
+        </script>
+    </div>
+    <div th:replace="layout :: footer"></div>
 </div>
 </body>
 </html>

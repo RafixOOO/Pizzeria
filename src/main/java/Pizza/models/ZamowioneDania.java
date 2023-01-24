@@ -1,8 +1,11 @@
 package Pizza.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
-import java.util.Set;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "zamowione_dania")
@@ -14,7 +17,7 @@ public class ZamowioneDania {
 
     private String uwagi;
 
-    private LocalDate Date;
+    private LocalDate date;
 
     @ManyToOne
     private Zamowienie zamowienie;
@@ -27,11 +30,11 @@ public class ZamowioneDania {
 
     public ZamowioneDania() {
     }
+    public ZamowioneDania(String uwagi, Zamowienie zamowienie,Set<Dodatki> dodatki, Menu menu) {
 
-    public ZamowioneDania(String uwagi, Zamowienie zamowienie, Set<Dodatki> dodatki, Menu menu) {
         this.uwagi = uwagi;
         this.zamowienie = zamowienie;
-        this.Date= LocalDate.now();
+        this.date= LocalDate.now();
         this.dodatki = dodatki;
         this.menu = menu;
     }
@@ -44,9 +47,11 @@ public class ZamowioneDania {
         this.id = id;
     }
 
-    public LocalDate getDate(){return Date;}
+    public LocalDate getDate(){return date;}
 
-    public void setDate(LocalDate Date){this.Date = Date;}
+
+    public void setDate(LocalDate date){this.date = date;}
+
 
     public String getUwagi() {
         return uwagi;

@@ -2,18 +2,18 @@ package Pizza.controlers;
 
 import Pizza.models.*;
 import Pizza.repos.*;
+import Pizza.service.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.mail.MessagingException;
+import java.util.*;
 
 
-@RestController
+@Controller
 public class AppController {
 
     @Autowired
@@ -33,9 +33,13 @@ public class AppController {
     @Autowired
     public KlientRepository klientRepository;
 
+    @Autowired
+    public Email email;
+
     String ID;
     Klient klient = new Klient();
     Zamowienie zamowienie = new Zamowienie();
+    String randomNumber;
 
     @RequestMapping("/")
         public String index(Model model) {
@@ -238,13 +242,7 @@ public class AppController {
 
     @RequestMapping("/Info")
     public String info(Model model){
-        model.addAttribute("klient", klientRepository.countAllBy());
-        model.addAttribute("zamowienia", zamowienieRepository.countAllBy());
-        model.addAttribute("pracownicy", pracownikRepository.countAllBy());
-        model.addAttribute("konta", usersRepository.countAllBy());
-        model.addAttribute("pizza", menuRepository.countAllBy());
-        model.addAttribute("dodatki", dodatkiRepository.countAllBy());
-
+        model.addAttribute("dane", zamowioneDaniaRepository.find());
         return "Info";
     }
 
@@ -255,11 +253,22 @@ public class AppController {
         return "Dane";
     }
 
-    @RequestMapping(value = "/da", method = RequestMethod.GET)
-    public String klient(Model model, FormCommand command){
-        klient = new Klient(command.getTextField(),command.getTextareaField(),Integer.parseInt(command.getDatetimeField()),command.getColorField(),command.getRadioButtonSelectedValue(),null);
+    @RequestMapping(value = "/dan", method = RequestMethod.GET)
+    public String mail(Model model, FormCommand command) {
+
         model.addAttribute("menu1", menuRepository.findByVisible(true));
         return "Order";
+    }
+
+    @RequestMapping(value = "/da", method = RequestMethod.GET)
+    public String klient(Model model, FormCommand command) throws MessagingException{
+        klient = new Klient(command.getTextField(),command.getTextareaField(),Integer.parseInt(command.getDatetimeField()),command.getColorField(),command.getRadioButtonSelectedValue(),null);
+        Random r = new Random();
+
+        randomNumber = String.format("%04d", (Object) Integer.valueOf(r.nextInt(1001)));
+        email.sendEmail(command.getColorField1(),""+randomNumber,"Kod do autoryzacji");
+        model.addAttribute("number", randomNumber);
+        return "Ver";
     }
 
     @RequestMapping(value="/Dodajpizze")
@@ -338,8 +347,6 @@ public class AppController {
             dan.setZamowienie(zamowienie);
             zamowioneDaniaRepository.save(dan);
         }
-        klient=null;
-        zamowienie=null;
         return "Przyjecie";
     }
 
