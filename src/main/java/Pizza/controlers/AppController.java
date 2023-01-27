@@ -379,6 +379,7 @@ public class AppController {
         List<ZamowioneDania> dania =zamowioneDaniaRepository.findByZamowienie(null);
         klientRepository.save(klient);
         zamowienie.setKlient(klient);
+        zamowienie.setStatus("Nowe");
         HashSet<ZamowioneDania> da = new HashSet<ZamowioneDania>();
         da.clear();
         for(int i=0;i<dania.size();i++) {

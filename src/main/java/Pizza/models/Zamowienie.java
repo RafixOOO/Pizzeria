@@ -10,8 +10,6 @@ public class Zamowienie {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
-
-    @Column(columnDefinition = "varchar(255) default 'Nowe'")
     String status;
 
     @OneToOne
@@ -24,6 +22,7 @@ public class Zamowienie {
     }
 
     public Zamowienie(Klient klient, Set<ZamowioneDania> dania) {
+        this.status="Nowe";
         this.klient = klient;
         this.dania = dania;
     }

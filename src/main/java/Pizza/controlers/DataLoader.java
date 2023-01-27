@@ -1,4 +1,4 @@
-package Pizza.controlers;
+/*package Pizza.controlers;
 
 
 import Pizza.models.*;
@@ -108,4 +108,4 @@ public class DataLoader implements ApplicationRunner {
        roleRepository.save(role1);
 
    }
-}
+}*/
