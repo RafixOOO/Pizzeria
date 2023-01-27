@@ -221,7 +221,8 @@ public class AppController {
 
     @RequestMapping("/Zamowienia")
     public String zamowienia(Model model) {
-        model.addAttribute("zamowienia", zamowienieRepository.findAll());
+        model.addAttribute("zamowienia", zamowienieRepository.findByStatusNot("Dostarczone"));
+        model.addAttribute("dostarczone", zamowienieRepository.findByStatus("Dostarczone"));
         return "Zamowienia";
 
     }
@@ -249,7 +250,8 @@ public class AppController {
         else{
         }
         zamowienieRepository.save(zam);
-        model.addAttribute("zamowienia", zamowienieRepository.findAll());
+        model.addAttribute("zamowienia", zamowienieRepository.findByStatusNot("Dostarczone"));
+        model.addAttribute("dostarczone", zamowienieRepository.findByStatus("Dostarczone"));
         return "Zamowienia";
     }
 
@@ -276,7 +278,8 @@ public class AppController {
         else{
         }
         zamowienieRepository.save(zam);
-        model.addAttribute("zamowienia", zamowienieRepository.findAll());
+        model.addAttribute("zamowienia", zamowienieRepository.findByStatusNot("Dostarczone"));
+        model.addAttribute("dostarczone", zamowienieRepository.findByStatus("Dostarczone"));
         return "Zamowienia";
     }
 
