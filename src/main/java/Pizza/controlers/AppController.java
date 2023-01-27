@@ -221,7 +221,7 @@ public class AppController {
 
     @RequestMapping("/Zamowienia")
     public String zamowienia(Model model) {
-        model.addAttribute("zamowienia", zamowienieRepository.findByStatus(false));
+        model.addAttribute("zamowienia", zamowienieRepository.findAll());
         return "Zamowienia";
 
     }
@@ -229,8 +229,54 @@ public class AppController {
     @RequestMapping(value = "/Zrealizuj")
     public String zrealizuj(Model model, @RequestParam(name = "id", required = false, value = "") String id) {
         Zamowienie zam = zamowienieRepository.findByid(Integer.parseInt(id));
-        zam.setStatus(true);
+        String status1 = "Nowe";
+        String status2 = "W przygotowaniu";
+        String status3 = "Oczekiwanie";
+        String status4 = "W drodze";
+        String status5 = "Dostarczone";
+        if(zam.getStatus().equals(status1)){
+            zam.setStatus(status2);
+        }
+        else if(zam.getStatus().equals(status2)){
+            zam.setStatus(status3);
+        }
+        else if(zam.getStatus().equals(status3)){
+            zam.setStatus(status4);
+        }
+        else if(zam.getStatus().equals(status4)){
+            zam.setStatus(status5);
+        }
+        else{
+        }
         zamowienieRepository.save(zam);
+        model.addAttribute("zamowienia", zamowienieRepository.findAll());
+        return "Zamowienia";
+    }
+
+    @RequestMapping(value = "/Zrealizuj1")
+    public String zrealizuj1(Model model, @RequestParam(name = "id", required = false, value = "") String id) {
+        Zamowienie zam = zamowienieRepository.findByid(Integer.parseInt(id));
+        String status1 = "Nowe";
+        String status2 = "W przygotowaniu";
+        String status3 = "Oczekiwanie";
+        String status4 = "W drodze";
+        String status5 = "Dostarczone";
+        if(zam.getStatus().equals(status5)){
+            zam.setStatus(status4);
+        }
+        else if(zam.getStatus().equals(status4)){
+            zam.setStatus(status3);
+        }
+        else if(zam.getStatus().equals(status3)){
+            zam.setStatus(status2);
+        }
+        else if(zam.getStatus().equals(status2)){
+            zam.setStatus(status1);
+        }
+        else{
+        }
+        zamowienieRepository.save(zam);
+        model.addAttribute("zamowienia", zamowienieRepository.findAll());
         return "Zamowienia";
     }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="Pizza@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1"/>
     <database id="2" parent="1" name="Pizza">
       <Current>1</Current>
@@ -16,8 +16,6 @@
 13388||10|U|G</Grants>
       <IntrospectionStateNumber>56798</IntrospectionStateNumber>
       <ObjectId>35479</ObjectId>
-      <Relations>sequence|table|118790|118791|1
-</Relations>
       <OwnerName>postgres</OwnerName>
     </database>
     <database id="3" parent="1" name="postgres">
@@ -3452,13 +3450,13 @@
       <OwnerName>postgres</OwnerName>
     </schema>
     <sequence id="264" parent="263" name="hibernate_sequence">
-      <DataType>bigint|0s</DataType>
+      <DasType>bigint|0s</DasType>
       <ObjectId>118753</ObjectId>
       <StateNumber>56725</StateNumber>
       <OwnerName>postgres</OwnerName>
     </sequence>
     <sequence id="265" parent="263" name="user_roles_user_role_id_seq">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <ObjectId>118790</ObjectId>
       <StateNumber>56732</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -3536,27 +3534,27 @@
       <OwnerName>postgres</OwnerName>
     </table>
     <column id="278" parent="266" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56726</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="279" parent="266" name="cena">
-      <DataType>double precision|0s</DataType>
+      <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56726</StateNumber>
       <TypeId>701</TypeId>
     </column>
     <column id="280" parent="266" name="nazwa">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>56726</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="281" parent="266" name="zamowione_dania_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>56726</StateNumber>
       <TypeId>23</TypeId>
@@ -3590,38 +3588,38 @@
       <UnderlyingIndexId>118757</UnderlyingIndexId>
     </key>
     <column id="285" parent="267" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="286" parent="267" name="imie">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="287" parent="267" name="miejscowosc">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="288" parent="267" name="nazwisko">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="289" parent="267" name="numer">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>5</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="290" parent="267" name="ulica">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
       <StateNumber>56727</StateNumber>
       <TypeId>1043</TypeId>
@@ -3645,14 +3643,14 @@
       <UnderlyingIndexId>118764</UnderlyingIndexId>
     </key>
     <column id="293" parent="268" name="klient_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56728</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="294" parent="268" name="zamowienia_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56728</StateNumber>
@@ -3710,33 +3708,33 @@ zamowienia_id</ColNames>
       <UnderlyingIndexId>118824</UnderlyingIndexId>
     </key>
     <column id="301" parent="269" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56729</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="302" parent="269" name="cena">
-      <DataType>double precision|0s</DataType>
+      <DasType>double precision|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56729</StateNumber>
       <TypeId>701</TypeId>
     </column>
     <column id="303" parent="269" name="nazwa">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>56729</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="304" parent="269" name="opis">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>56729</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="305" parent="269" name="visible">
-      <DataType>boolean|0s</DataType>
+      <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StateNumber>56729</StateNumber>
@@ -3761,14 +3759,14 @@ zamowienia_id</ColNames>
       <UnderlyingIndexId>118776</UnderlyingIndexId>
     </key>
     <column id="308" parent="270" name="menu_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56730</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="309" parent="270" name="zamowione_dania_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56730</StateNumber>
@@ -3826,32 +3824,32 @@ zamowione_dania_id</ColNames>
       <UnderlyingIndexId>118826</UnderlyingIndexId>
     </key>
     <column id="316" parent="271" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56731</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="317" parent="271" name="imie">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>56731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="318" parent="271" name="nazwisko">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>56731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="319" parent="271" name="stanowisko">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
       <StateNumber>56731</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="320" parent="271" name="user_username">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
       <StateNumber>56731</StateNumber>
       <TypeId>1043</TypeId>
@@ -3885,22 +3883,23 @@ zamowione_dania_id</ColNames>
       <UnderlyingIndexId>118788</UnderlyingIndexId>
     </key>
     <column id="324" parent="272" name="user_role_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <DefaultExpression>nextval(&apos;user_roles_user_role_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56732</StateNumber>
+      <SequenceId>118790</SequenceId>
       <TypeId>23</TypeId>
     </column>
     <column id="325" parent="272" name="role">
-      <DataType>varchar(20)|0s</DataType>
+      <DasType>varchar(20)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56732</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="326" parent="272" name="username">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StateNumber>56732</StateNumber>
@@ -3935,27 +3934,27 @@ zamowione_dania_id</ColNames>
       <UnderlyingIndexId>118795</UnderlyingIndexId>
     </key>
     <column id="330" parent="273" name="username">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56733</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="331" parent="273" name="enabled">
-      <DataType>boolean|0s</DataType>
+      <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56733</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="332" parent="273" name="password">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>56733</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="333" parent="273" name="pracownik_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>56733</StateNumber>
       <TypeId>23</TypeId>
@@ -3990,21 +3989,21 @@ zamowione_dania_id</ColNames>
       <UnderlyingIndexId>118802</UnderlyingIndexId>
     </key>
     <column id="337" parent="274" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56734</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="338" parent="274" name="status">
-      <DataType>boolean|0s</DataType>
+      <DasType>boolean|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56734</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <column id="339" parent="274" name="klient_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>56734</StateNumber>
       <TypeId>23</TypeId>
@@ -4038,14 +4037,14 @@ zamowione_dania_id</ColNames>
       <UnderlyingIndexId>118807</UnderlyingIndexId>
     </key>
     <column id="343" parent="275" name="zamowienie_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56735</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="344" parent="275" name="dania_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56735</StateNumber>
@@ -4103,26 +4102,26 @@ dania_id</ColNames>
       <UnderlyingIndexId>118828</UnderlyingIndexId>
     </key>
     <column id="351" parent="276" name="id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56736</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="352" parent="276" name="uwagi">
-      <DataType>varchar(255)|0s</DataType>
+      <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
       <StateNumber>56736</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="353" parent="276" name="menu_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>3</Position>
       <StateNumber>56736</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="354" parent="276" name="zamowienie_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <Position>4</Position>
       <StateNumber>56736</StateNumber>
       <TypeId>23</TypeId>
@@ -4166,14 +4165,14 @@ dania_id</ColNames>
       <UnderlyingIndexId>118817</UnderlyingIndexId>
     </key>
     <column id="359" parent="277" name="zamowione_dania_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>56737</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="360" parent="277" name="dodatki_id">
-      <DataType>integer|0s</DataType>
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>56737</StateNumber>

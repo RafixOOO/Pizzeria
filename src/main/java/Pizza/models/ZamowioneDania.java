@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
+import java.time.temporal.ChronoField;
 import java.util.Set;
+import java.time.YearMonth;
 
 @Entity
 @Table(name = "zamowione_dania")
@@ -32,9 +33,11 @@ public class ZamowioneDania {
     }
     public ZamowioneDania(String uwagi, Zamowienie zamowienie,Set<Dodatki> dodatki, Menu menu) {
 
+        YearMonth y = YearMonth.now();
+        LocalDate date = LocalDate.of(y.get(ChronoField.YEAR),  y.get(ChronoField.MONTH_OF_YEAR), 1);
         this.uwagi = uwagi;
         this.zamowienie = zamowienie;
-        this.date= LocalDate.now();
+        this.date= date;
         this.dodatki = dodatki;
         this.menu = menu;
     }

@@ -16,7 +16,7 @@
     <table id="customers">
         <thead>
         <tr>
-            <td colspan="7" align="center">
+            <td colspan="8" align="center">
                 Zamówienia
             </td>
         </tr>
@@ -24,6 +24,7 @@
             <th>Nr Zamówienia</th>
             <th>Dane Klient</th>
             <th>Adres</th>
+            <th>Status</th>
             <th>Menu</th>
             <th>Opcje</th>
         </tr>
@@ -34,8 +35,9 @@
             <td th:utext="${zam.Id}"></td>
             <td th:utext="${zam.klient.imie}+' '+${zam.klient.nazwisko}+' '+${zam.klient.numer}"></td>
             <td th:utext="${zam.Klient.ulica}+' '+${zam.Klient.miejscowosc}"></td>
-            <td><a th:href="@{'/Check?id='+${zam.id}}"><button>Sprawdź</button></td>
-            <td><a th:href="@{'/Zrealizuj?id='+${zam.id}}"><button>Zrealizuj</button></a></td>
+            <td th:utext="${zam.status}"></td>
+            <td><a th:href="@{'/Check?id='+${zam.id}}"><button>Sprawdź</button></a></td>
+            <td><a th:href="@{'/Zrealizuj1?id='+${zam.id}}"><button><img src="/images/arrow-left-short.svg" /></button></a> Realizacja <a th:href="@{'/Zrealizuj?id='+${zam.id}}"><button><img src="/images/arrow-right-short.svg" /></button></a></td>
         </tr>
         </tbody>
     </table>
