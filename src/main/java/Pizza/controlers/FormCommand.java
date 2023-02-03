@@ -1,4 +1,4 @@
-package Pizza.models;
+package Pizza.controlers;
 
 public class FormCommand {
    

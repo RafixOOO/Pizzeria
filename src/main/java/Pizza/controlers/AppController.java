@@ -311,7 +311,8 @@ public class AppController {
 
     @RequestMapping(value = "/da", method = RequestMethod.GET)
     public String klient(Model model, FormCommand command) throws MessagingException{
-        klient = new Klient(command.getTextField(),command.getTextareaField(),Integer.parseInt(command.getDatetimeField()),command.getColorField(),command.getRadioButtonSelectedValue(),null);
+        klient = new Klient(command.getTextField(),command.getTextareaField(),Integer.parseInt(command.getDatetimeField()),
+                command.getColorField(),command.getRadioButtonSelectedValue(),null);
         Random r = new Random();
 
         randomNumber = String.format("%04d", (Object) Integer.valueOf(r.nextInt(1001)));
